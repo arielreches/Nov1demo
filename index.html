@@ -10,10 +10,13 @@
 </head>
 <body>
 <div id="app" class="app">
+<h3> app </h3>
   {{ message }}
 </div>
 
 <div id="app-2" class="app">
+<h3> app2 </h3>
+
   <span v-bind:title="message">
     Hover your mouse over me for a few seconds
     to see my dynamically bound title!
@@ -23,11 +26,15 @@
 
 
 <div id="app-3" class="app">
+<h3> app3 </h3>
+
   <span v-if="seen">Now you see me</span>
 </div>
 
 
 <div id="app-4" class="app">
+<h3> app4 </h3>
+
   <ol>
     <li v-for="todo in todos">
       {{ todo.text }}
@@ -37,18 +44,23 @@
 
 
 <div id="app-5" class="app">
+<h3> app5 </h3>
+
   <p>{{ message }}</p>
   <button v-on:click="reverseMessage">Reverse Message</button>
 
 </div>
 
 <div id="app-6" class="app">
+<h3> app6 </h3>
   <p>{{ message }}</p>
   <input v-model="message">
 </div>
 
 
 <div id="app-7" class="app">
+<h3> app7 </h3>
+
   <ol>
     <!--
       Now we provide each todo-item with the todo object
@@ -66,6 +78,8 @@
 
 
 <div id="app-8" >
+<h3> app8 </h3>
+
 
     <!-- The navigation menu will get the value of the "active" variable as a class. -->
 
@@ -90,7 +104,9 @@
 </div>
 
 
+
 <form id="app-9" v-cloak>
+<h3> app9 </h3>
 
     <div class="bar">
         <!-- Create a binding between the searchString model and the text field -->
@@ -113,6 +129,7 @@
 <!-- v-cloak hides any un-compiled data bindings until the Vue instance is ready. -->
 
 <form id="app-10"  v-cloak>
+<h3> app10 </h3>
 
     <h1>Services</h1>
 
