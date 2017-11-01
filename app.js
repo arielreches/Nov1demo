@@ -2,7 +2,7 @@
 var app = new Vue({
   el: '#app',
   data: {
-    message: 'Lit banger at barringtons'
+    message: 'stay in school kids'
   }
 })
 
