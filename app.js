@@ -6,21 +6,63 @@ var app = new Vue({
   }
 })
 
+/*
 
+
+
+
+
+
+
+
+
+
+
+
+
+*/
 var app2 = new Vue({
   el: '#app-2',
   data: {
     message: 'You loaded this page on ' + new Date().toLocaleString()
   }
 })
+/*
 
+
+
+
+
+
+
+
+
+
+
+
+
+*/
 var app3 = new Vue({
   el: '#app-3',
   data: {
     seen: true
   }
 })
+/*
 
+
+
+
+
+
+
+
+
+
+
+
+
+*/
 var app4 = new Vue({
   el: '#app-4',
   data: {
@@ -31,7 +73,21 @@ var app4 = new Vue({
     ]
   }
 })
+/*
 
+
+
+
+
+
+
+
+
+
+
+
+
+*/
 var app5 = new Vue({
   el: '#app-5',
   data: {
@@ -43,7 +99,21 @@ var app5 = new Vue({
     }
   }
 })
+/*
 
+
+
+
+
+
+
+
+
+
+
+
+
+*/
 
 var app6 = new Vue({
   el: '#app-6',
@@ -52,7 +122,21 @@ var app6 = new Vue({
   }
 })
 
+/*
 
+
+
+
+
+
+
+
+
+
+
+
+
+*/
 
 Vue.component('todo-item', {
   // The todo-item component now accepts a
@@ -73,6 +157,21 @@ var app7 = new Vue({
     ]
   }
 })
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
 
 var app8 = new Vue({
 
@@ -93,6 +192,21 @@ var app8 = new Vue({
         }
     }
 });
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
 
 
 var app9 = new Vue({
@@ -160,6 +274,22 @@ Vue.filter('currency', function (value) {
     return '$' + value.toFixed(2);
 });
 
+
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
 var app10 = new Vue({
     el: '#app-10',
     data: {
