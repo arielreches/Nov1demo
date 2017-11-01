@@ -5,17 +5,15 @@
   <script src="https://unpkg.com/vue"></script>
   <!-- <script type="text/javascript" src="/scripts/vue-clock-simple/dist/vue-clock.min.js"></script> -->
 
-<style>
-div {height:80px;}
-</style>
+<link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 <body>
-<div id="app">
+<div id="app" class="app">
   {{ message }}
 </div>
 
-<div id="app-2">
+<div id="app-2" class="app">
   <span v-bind:title="message">
     Hover your mouse over me for a few seconds
     to see my dynamically bound title!
@@ -24,12 +22,12 @@ div {height:80px;}
 
 
 
-<div id="app-3">
+<div id="app-3" class="app">
   <span v-if="seen">Now you see me</span>
 </div>
 
 
-<div id="app-4">
+<div id="app-4" class="app">
   <ol>
     <li v-for="todo in todos">
       {{ todo.text }}
@@ -38,19 +36,19 @@ div {height:80px;}
 </div>
 
 
-<div id="app-5">
+<div id="app-5" class="app">
   <p>{{ message }}</p>
   <button v-on:click="reverseMessage">Reverse Message</button>
 
 </div>
 
-<div id="app-6">
+<div id="app-6" class="app">
   <p>{{ message }}</p>
   <input v-model="message">
 </div>
 
 
-<div id="app-7">
+<div id="app-7" class="app">
   <ol>
     <!--
       Now we provide each todo-item with the todo object
@@ -67,7 +65,7 @@ div {height:80px;}
 </div>
 
 
-<div id="app8">
+<div id="app-8" >
 
     <!-- The navigation menu will get the value of the "active" variable as a class. -->
 
@@ -91,6 +89,49 @@ div {height:80px;}
     <p>You chose <b>{{active}}</b></p>
 </div>
 
+
+<form id="app-9" v-cloak>
+
+    <div class="bar">
+        <!-- Create a binding between the searchString model and the text field -->
+        <input type="text" v-model="searchString" placeholder="Enter your search terms" />
+    </div>
+
+    <ul>
+        <!-- Render a li element for every entry in the computed filteredArticles array. -->
+
+        <li v-for="article in filteredArticles">
+            <a v-bind:href="article.url"><img v-bind:src="article.image" /></a>
+            <p>{{article.title}}</p>
+        </li>
+    </ul>
+
+</form>
+
+
+
+<!-- v-cloak hides any un-compiled data bindings until the Vue instance is ready. -->
+
+<form id="app-10"  v-cloak>
+
+    <h1>Services</h1>
+
+    <ul>
+        <!-- Loop through the services array, assign a click handler, and set or
+             remove the "active" css class if needed -->
+        <li v-for="service in services" v-on:click="toggleActive(service)" v-bind:class="{ 'active': service.active}">
+            <!-- Display the name and price for every entry in the array .
+                Vue.js has a built in currency filter for formatting the price -->
+            {{service.name}} <span>{{service.price | currency}}</span>
+        </li>
+    </ul>
+
+    <div class="total">
+        <!-- Calculate the total price of all chosen services. Format it as currency. -->
+        Total: <span>{{total() | currency}}</span>
+    </div>
+
+</form>
 
 
 

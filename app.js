@@ -77,7 +77,7 @@ var app7 = new Vue({
 var app8 = new Vue({
 
     // A DOM element to mount our view model.
-    el: '#app8',
+    el: '#app-8',
 
     // This is the model.
     // Define properties and give them initial values.
@@ -94,3 +94,113 @@ var app8 = new Vue({
     }
 });
 
+
+var app9 = new Vue({
+    el: '#app-9',
+    data: {
+        searchString: "",
+
+        // The data model. These items would normally be requested via AJAX,
+        // but are hardcoded here for simplicity.
+
+        articles: [
+            {
+                "title": "What You Need To Know About CSS Variables",
+                "url": "https://tutorialzine.com/2016/03/what-you-need-to-know-about-css-variables/",
+            },
+            {
+                "title": "Freebie: 4 Great Looking Pricing Tables",
+                "url": "https://tutorialzine.com/2016/02/freebie-4-great-looking-pricing-tables/",
+            },
+            {
+                "title": "20 Interesting JavaScript and CSS Libraries for February 2016",
+                "url": "https://tutorialzine.com/2016/02/20-interesting-javascript-and-css-libraries-for-february-2016/",
+            },
+            {
+                "title": "Quick Tip: The Easiest Way To Make Responsive Headers",
+                "url": "https://tutorialzine.com/2016/02/quick-tip-easiest-way-to-make-responsive-headers/",
+            },
+            {
+                "title": "Learn SQL In 20 Minutes",
+                "url": "https://tutorialzine.com/2016/01/learn-sql-in-20-minutes/",
+            },
+            {
+                "title": "Creating Your First Desktop App With HTML, JS and Electron",
+                "url": "https://tutorialzine.com/2015/12/creating-your-first-desktop-app-with-html-js-and-electron/",
+            }
+        ]
+    },
+    computed: {
+        // A computed property that holds only those articles that match the searchString.
+        filteredArticles: function () {
+            var articles_array = this.articles,
+                searchString = this.searchString;
+
+            if(!searchString){
+                return articles_array;
+            }
+
+            searchString = searchString.trim().toLowerCase();
+
+            articles_array = articles_array.filter(function(item){
+                if(item.title.toLowerCase().indexOf(searchString) !== -1){
+                    return item;
+                }
+            })
+
+            // Return an array with the filtered data.
+            return articles_array;;
+        }
+    }
+});
+
+
+// Define a custom filter called "currency". 
+Vue.filter('currency', function (value) {
+    return '$' + value.toFixed(2);
+});
+
+var app10 = new Vue({
+    el: '#app-10',
+    data: {
+        // Define the model properties. The view will loop
+        // through the services array and genreate a li
+        // element for every one of its items.
+        services: [
+            {
+                name: 'Web Development',
+                price: 300,
+                active:true
+            },{
+                name: 'Design',
+                price: 400,
+                active:false
+            },{
+                name: 'Integration',
+                price: 250,
+                active:false
+            },{
+                name: 'Training',
+                price: 220,
+                active:false
+            }
+        ]
+    },
+    methods: {
+        toggleActive: function(s){
+            s.active = !s.active;
+        },
+        total: function(){
+
+            var total = 0;
+
+            this.services.forEach(function(s){
+                if (s.active){
+                    total+= s.price;
+                }
+            });
+
+           return total;
+        }
+    }
+});
