@@ -50,64 +50,51 @@ div {height:80px;}
 </div>
 
 
-
-  <script>
-
-
-var app = new Vue({
-  el: '#app',
-  data: {
-    message: 'Hello Vue!'
-  }
-})
-
-
-var app2 = new Vue({
-  el: '#app-2',
-  data: {
-    message: 'You loaded this page on ' + new Date().toLocaleString()
-  }
-})
-
-var app3 = new Vue({
-  el: '#app-3',
-  data: {
-    seen: true
-  }
-})
-
-var app4 = new Vue({
-  el: '#app-4',
-  data: {
-    todos: [
-      { text: 'Learn JavaScript' },
-      { text: 'Learn Vue' },
-      { text: 'Build something awesome' }
-    ]
-  }
-})
-
-var app5 = new Vue({
-  el: '#app-5',
-  data: {
-    message: 'Hello Vue.js!'
-  },
-  methods: {
-    reverseMessage: function () {
-      this.message = this.message.split('').reverse().join('')
-    }
-  }
-})
+<div id="app-7">
+  <ol>
+    <!--
+      Now we provide each todo-item with the todo object
+      it's representing, so that its content can be dynamic.
+      We also need to provide each component with a "key",
+      which will be explained later.
+    -->
+    <todo-item
+      v-for="item in groceryList"
+      v-bind:todo="item"
+      v-bind:key="item.id">
+    </todo-item>
+  </ol>
+</div>
 
 
-var app6 = new Vue({
-  el: '#app-6',
-  data: {
-    message: 'Hello Vue!'
-  }
-})
+<div id="app8">
 
-  </script>
+    <!-- The navigation menu will get the value of the "active" variable as a class. -->
+
+    <!-- To stops the page from jumping when a link is clicked 
+        we use the "prevent" modifier (short for preventDefault). -->
+
+    <nav v-bind:class="active" v-on:click.prevent>
+
+        <!-- When a link in the menu is clicked, we call the makeActive method, 
+        defined in the JavaScript Vue instance. It will change the value of "active". -->
+
+        <a href="#" class="home" v-on:click="makeActive('home')">Home</a>
+        <a href="#" class="projects" v-on:click="makeActive('projects')">Projects</a>
+        <a href="#" class="services" v-on:click="makeActive('services')">Services</a>
+        <a href="#" class="contact" v-on:click="makeActive('contact')">Contact</a>
+    </nav>
+
+    <!-- The mustache expression will be replaced with the value of "active".
+         It will automatically update to reflect any changes. -->
+
+    <p>You chose <b>{{active}}</b></p>
+</div>
+
+
+
+
+  <script src="app.js"> </script>
 </body>
 </html>
 
