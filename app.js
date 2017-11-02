@@ -91,7 +91,7 @@ var app4 = new Vue({
 var app5 = new Vue({
   el: '#app-5',
   data: {
-    message: 'Hello Vue.js!'
+    message: 'Hello Vue.js! Is it working now?'
   },
   methods: {
     reverseMessage: function () {
