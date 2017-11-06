@@ -11,7 +11,11 @@
 <body>
 <div id="app" class="app">
 <h3> app </h3>
-  {{ message }}
+  <div v-bind:style="{'backgroundColor': color}" style = "width: 300px; height: 25px; margin-left: auto; margin-right: auto" align = "center">
+      {{ message }}
+  </div>
+</br>
+  <button v-on:click="setRandomColor">Click to Change Color</button>
 </div>
 
 <div id="app-2" class="app">

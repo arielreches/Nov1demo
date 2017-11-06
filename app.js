@@ -2,7 +2,21 @@
 var app = new Vue({
   el: '#app',
   data: {
-    message: 'stay in school kids'
+    message: 'Colors are fun!',
+    color: '#420690'
+  },
+  methods: {
+    getRandomColor: function(){
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    },
+    setRandomColor: function () {
+        this.color = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6)
+      }
   }
 })
 
