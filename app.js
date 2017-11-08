@@ -408,9 +408,15 @@ var app10 = new Vue({
                 if (s.active){
                     total+= s.price;
                 }
+
+
             });
 
            return total;
-        }
+        },
+
+        say: function (message) {
+      alert(message)
+    }
     }
 });

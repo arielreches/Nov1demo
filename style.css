@@ -117,6 +117,11 @@ div.total span{
 #search{
   margin-bottom: 15px
 }
+
+#purchase{
+  margin-top: 25px;
+  align: inline-block;
+}
 .flip-list-move {
   transition: transform 1s;
 }
