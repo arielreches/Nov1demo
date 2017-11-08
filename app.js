@@ -20,6 +20,72 @@ var app = new Vue({
   }
 })
 
+new Vue({
+  el: '#flip-list-demo',
+  data: {
+    items: [1,2,3,4,5,6,7,8,9]
+  },
+  methods: {
+    shuffle: function () {
+      this.items = _.shuffle(this.items)
+    }
+  }
+})
+
+new Vue({
+  el: '#staggered-list-demo',
+  data: {
+    query: '',
+    list: [
+      { msg: 'Ariel' },
+      { msg: 'Matt' },
+      { msg: 'Jillian' },
+      { msg: 'Stephen' },
+      { msg: 'Harry' },
+      { msg:  'Ross'  },
+      { msg:  'Forrest' },
+      { msg:  'Jakob' },
+      { msg:  'Quinn' },
+      { msg:  'Gaurab'},
+      { msg:  'Ryan'}
+    ]
+  },
+  computed: {
+    computedList: function () {
+      var vm = this
+      return this.list.filter(function (item) {
+        return item.msg.toLowerCase().indexOf(vm.query.toLowerCase()) !== -1
+      })
+    }
+  },
+  methods: {
+    beforeEnter: function (el) {
+      el.style.opacity = 0
+      el.style.height = 0
+    },
+    enter: function (el, done) {
+      var delay = el.dataset.index * 150
+      setTimeout(function () {
+        Velocity(
+          el,
+          { opacity: 1, height: '1.6em' },
+          { complete: done }
+        )
+      }, delay)
+    },
+    leave: function (el, done) {
+      var delay = el.dataset.index * 150
+      setTimeout(function () {
+        Velocity(
+          el,
+          { opacity: 0, height: 0 },
+          { complete: done }
+        )
+      }, delay)
+    }
+  }
+})
+
 /*
 
 
@@ -283,7 +349,7 @@ var app9 = new Vue({
 });
 
 
-// Define a custom filter called "currency". 
+// Define a custom filter called "currency".
 Vue.filter('currency', function (value) {
     return '$' + value.toFixed(2);
 });
